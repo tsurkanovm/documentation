@@ -1,0 +1,26 @@
+# Every instruction in an image creates a cacheable layer - layers help with image re-building and sharing.
+FROM node
+#the parent image - node
+# create dir, and will copy on it (can reference by .)
+WORKDIR /app
+
+# copy file to workdirectory to install node
+COPY package.json .
+
+# run command during he build
+RUN npm install
+
+# copy everything else o the workdir (can be use "." instead of "/app")
+COPY . /app
+
+#build arg, can be changed during the build by --build-arg DEFAULT_PORT=8000
+ARG DEFAULT_PORT=80
+
+#env var - can be changed during the run by --env (or -e) or from file by --env-file
+ENV PORT $DEFAULT_PORT
+
+# just anotation that we will use port that will be set during the build or run, here it has no impact
+EXPOSE $PORT
+
+# will execute by run container
+CMD ["node", "server.js"]

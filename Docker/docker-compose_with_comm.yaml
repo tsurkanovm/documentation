@@ -1,0 +1,52 @@
+#docker-compose syntax version
+version: "3.8"
+services:
+  mongodb:
+    # image - what image to build from hub
+    image: 'mongo'
+    volumes:
+    #named volume
+      - data:/data/db
+    # environment: 
+    #   MONGO_INITDB_ROOT_USERNAME: max
+    #   MONGO_INITDB_ROOT_PASSWORD: secret
+      # - MONGO_INITDB_ROOT_USERNAME=max
+    env_file: 
+      - ./env/mongo.env
+  backend:
+    #build - where is docker file landed for the build
+    build: ./backend
+    # build: - more advance syntax - if docker file in other place or it has not standard name + some build args
+    #   context: ./backend
+    #   dockerfile: Dockerfile
+    #   args:
+    #     some-arg: 1
+    ports:
+      - '80:80'
+    volumes: 
+      - logs:/app/logs
+      #mount volume (path:path, from the context or docker-compose file)
+      - ./backend:/app
+      #anonimous
+      - /app/node_modules
+    env_file: 
+      - ./env/backend.env
+    depends_on:
+      #first should be build and run mongo container
+      - mongodb
+  frontend:
+    build: ./frontend
+    ports: 
+      - '3000:3000'
+    volumes: 
+      - ./frontend/src:/app/src
+    #params for -it arg of run command ====
+    stdin_open: true
+    tty: true
+    # ====
+    depends_on: 
+      - backend
+# all named volumes additionally needs to specify here
+volumes: 
+  data:
+  logs:
