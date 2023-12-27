@@ -102,10 +102,32 @@ Ko does not have the else statement, uses ifnot or !
 ```
 
 #### foreach
-$data
-$context
-$context.root
+$data - current element
+$context - current context
+$context.root - it is always the root context
+$context.parent - parent context (previous foreach)
+$context.parents - array of all level parents 
 
-#### alternative syntax
+##### Example:
+```html
+    <!-- ko foreach: collection -->
+    <!-- ko text: console.log('First Level ', $data) --><!-- /ko -->
+        <!-- ko foreach: $data -->
+    <!-- ko text: console.log('Second Level ', $context) --><!-- /ko -->
+            <button data-bind="click: $root.onClick">Try to click</button>
+        <!-- /ko -->
+    <!-- /ko -->
+```
+```javascript
+let viewModelForeach = function()
+    {
+        this.collection = ko.observableArray([['first', 'second'], ['third']]);
+
+        this.onClick = function(element, event){
+            console.log('Event is ', event);
+            console.log('Value is ', element);
+        };
+    }
+```
 Not all bindings and functions have alternative syntax
  
