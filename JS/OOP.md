@@ -47,3 +47,7 @@ document.getElementsByTagName('div')[0] instanceof HTMLDivElement // => true
 document.getElementsByTagName('div')[0] instanceof HTMLElement // => true
 document.getElementsByTagName('div') instanceof HTMLCollection // => true
 ```
+6. super()
+   - super() is used in the context of a constructor to call the parent class constructor. 
+   - super.methodName() is used in non-constructor methods to reference methods in the parent class. It is like ```parent::methodName()``` in PHP
+   - In M2 uses jQueryUI - so it utilizes _super(). The _super() method is used to call the same method from the parent widget (or UiComponent). 
