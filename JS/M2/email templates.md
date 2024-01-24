@@ -41,7 +41,7 @@ Any styles you add to any html email template inside a comment block, like in th
    .example-style { color: green; }
  @-->
 ```
-It is just documentation (for readable proporses), not defining:
+It is like phpdoc (but it also parses to use in admin panel for this and child templates under the "Template variables"). Defining on BE side:
 ```html
 <!--@vars {
 "var logo_url":"Email Logo Image URL",

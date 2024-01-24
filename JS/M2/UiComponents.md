@@ -16,6 +16,16 @@ initObservable: function () {
             return this.messages();
         },
 ```
+observable works for primitivs. For object needs to call valueHasMutated()
+```javascript
+ this.obj = ko.observable({
+  variable: 'some variable'
+})
+
+this.obj().variable = 'another var';
+// to implement this changes in template
+this.obj.valueHasMutated();
+```
 
 #### tracks
 the same as above, but it creates functional attributes, that no more a function:
