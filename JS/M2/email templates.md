@@ -73,3 +73,4 @@ Here core logic for global vars (from config mostly) - `vendor/magento/module-em
 This is specifically for custom variables that you define in the Magento Admin under System > Custom Variables.
 - trans
 ```<p>{{trans "My store name - %store_name," store_name=$store.name}}</p>```
+- Almost all these vars and custom vars are available in Page Builder also
