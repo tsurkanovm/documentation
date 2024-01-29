@@ -1,0 +1,1 @@
+default_head_blocks.xml it is like default.xml but only for header. default.xml - for body structure only
