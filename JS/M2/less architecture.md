@@ -88,8 +88,9 @@ Many these utils also placed into _extend**s**.less
 and the same as above but using extends:
 ```less
    label {
-        &:extend(.abs-hidden);
-  display: block;
+    &:extend(.abs-hidden);
+    display: block;
+ }
 ```
 or:
 ```less
