@@ -1,0 +1,2 @@
+- _defer is a function provided by the Underscore.js library, and it is somewhat similar to using setTimeout(fn, 0)
+- Both _.defer and setTimeout(fn, 0) are used to delay the execution of a function until the call stack is clear. This means the function will execute after the current call stack is empty, essentially making the execution asynchronous.
