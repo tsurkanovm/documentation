@@ -117,3 +117,34 @@ const JohDou = {
 let newgreetingFunc = Greet.hallo.bind(JohDou, 'Hi');
 newgreetingFunc('!!!'); // Output: "Hi John Doe!!!"
 ```
+
+#### Closure examples
+```javascript
+let userName = 'Max';
+function greetUser() {
+  console.log('Hi ' + userName);
+}
+userName = 'Manuel';
+
+greetUser() // Hi Manuel
+```
+
+```javascript
+let userName = 'Max';
+function greetUser() {
+    let name = userName;
+  console.log('Hi ' + name);
+}
+
+greetUser() // Hi Max
+```
+
+```javascript
+let name = 'Max';
+function greetUser() {
+    let name = 'Anna';
+  console.log('Hi ' + name);
+}
+
+greetUser() // Hi Anna
+```
