@@ -68,6 +68,9 @@ async function trackUserHandlerPromiseAsyncBy() { // function that we use Promis
     } catch (error) {  // catch analogy, the error - will be data from reject defenition
         console.log(error.message);
     }
+
+    // this code invokes after getLocation, but with pure Promises (uses then for getLocation) - this part invokes right away
+    console.log('Not a async part...')
 }
 
 console.log('Run ... ');
