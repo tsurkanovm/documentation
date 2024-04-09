@@ -1,0 +1,1 @@
+We have general GraphQL specification (witch is a technology-agnostic) and build-on it implementations. For example M2 use the webonyx/graphql-php composer package.
