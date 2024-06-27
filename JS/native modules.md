@@ -2,7 +2,7 @@ script type=module - sign that we can use export/import keywords
 ```javascript
 <script src="assets/scripts/app.js" defer type="module"></script>
 ```
-CORS policy error will show up when we use file protocol and we want to import module script. Needs to use adummy server
+CORS policy error will show up when we use file protocol and we want to import module script. Needs to use a dummy server
 ```text
 npm list -g - all packages
 
