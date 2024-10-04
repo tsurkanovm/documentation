@@ -45,6 +45,7 @@ the same as above, but it creates functional attributes, that no more a function
 View all uiComponent on a page (run in console):
 ```javascript
     require('uiRegistry').get(component => {console.log(component.name)})
+    // or specific component - require('uiRegistry').get('staging_grid_list.staging_grid_list.staging_columns_editor.29') 
 ```
 
 #### linking
