@@ -1,0 +1,2 @@
+- check if package is installed and all info about it - `composer show 2tvenom/cborencode`
+- sometimes I got issues with github token. I created new one but it doesnt work. Helps me to check all tokens, and copy from there - `composer config --global --list

@@ -1,1 +1,0 @@
-- check if package is installed and all info about it - `composer show 2tvenom/cborencode`
