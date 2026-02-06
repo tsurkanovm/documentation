@@ -1,0 +1,13 @@
+mysqldump -h 127.0.0.1 --skip-lock-tables --user=xv5ik7lwlwxhg_stg --password=lrvq2GwDRWgpixw xv5ik7lwlwxhg_stg | sed -e 's/DEFINER[ ]*=[ ]*[^*]*\*/\*/' | gzip > var/dev_21102025.sql.gz
+php var/n98-magerun2.phar config:store:get --decrypt {config_path}
+php var/n98-magerun2.phar db:dump var/integr_011124_1.sql.gz --compression=gzip
+php vendor/bin/ece-tools cron:disable
+sudo update-alternatives --config php
+odocker magerun sys:cron:run givex_import_fulfilment_jobs
+
+В access.log на каждом сервере прода
+/var/log/platform/{id сервера}/access.log
+Через grep и awk можешь сгруппировать по количеству запросов чтоб понять есть ли какие-то бото паттерны
+
+nohup n98-magerun2.phar sys:cron:run jobname > /dev/null 2>&1 &
+запуск команди в бекграунді, ігнорує розриви з терміналом, дозволяє запускати інші команди
